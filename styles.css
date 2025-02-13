@@ -1,0 +1,37 @@
+.linkedin-search-btn {
+    display: inline-flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 8px 16px;
+    border: 1px solid #0a66c2;
+    border-radius: 4px;
+    background-color: #0a66c2;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: inherit;
+}
+
+.linkedin-search-btn:hover {
+    background-color: #004182;
+}
+
+.linkedin-search-btn img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+/* Position the button after job title */
+.job-detail-title+.linkedin-search-btn {
+    display: block;
+    width: fit-content;
+}
+
+.company-detail-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}

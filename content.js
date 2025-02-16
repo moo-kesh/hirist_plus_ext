@@ -12,36 +12,69 @@ const SELECTORS = {
         { selector: '.company-detail-wrapper', position: 'append' },
         { selector: '.job-fields', position: 'prepend' }
     ],
-    EXISTING_BUTTON: '.linkedin-search-btn'
+    EXISTING_LINKEDIN_BUTTON: '.linkedin-search-btn',
+    EXISTING_GLASSDOOR_BUTTON: '.glassdoor-search-btn'
 };
 
 /**
- * Creates and adds a LinkedIn search button for the given company
+ * Creates and adds search buttons for the given company
  * @param {string} companyName - The name of the company to search for
  * @returns {void}
  */
-function addLinkedInButton(companyName) {
-    if (document.querySelector(SELECTORS.EXISTING_BUTTON)) {
-        return;
+function addSearchButtons(companyName) {
+    // Remove any existing button container
+    const existingContainer = document.querySelector('.company-search-buttons');
+    if (existingContainer) {
+        existingContainer.remove();
     }
 
-    const button = createButton(companyName);
-    insertButtonInPage(button);
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'company-search-buttons';
+
+    const linkedinButton = createSearchButton(companyName, 'linkedin');
+    const glassdoorButton = createSearchButton(companyName, 'glassdoor');
+
+    buttonContainer.appendChild(linkedinButton);
+    buttonContainer.appendChild(glassdoorButton);
+
+    // Insert after job title
+    const jobTitle = document.querySelector('.job-detail-title');
+    if (jobTitle && jobTitle.nextSibling) {
+        jobTitle.parentNode.insertBefore(buttonContainer, jobTitle.nextSibling);
+    } else if (jobTitle) {
+        jobTitle.parentNode.appendChild(buttonContainer);
+    }
 }
 
 /**
- * Creates the LinkedIn search button element
+ * Creates a search button element for the specified platform
  * @param {string} companyName - Company name to search for when clicked
+ * @param {string} platform - The platform to search on ('linkedin' or 'glassdoor')
  * @returns {HTMLButtonElement} The created button element
  */
-function createButton(companyName) {
+function createSearchButton(companyName, platform) {
     const button = document.createElement('button');
-    button.className = 'linkedin-search-btn';
-    button.innerHTML = '<img src="https://www.linkedin.com/favicon.ico" alt="LinkedIn" /> Find on LinkedIn';
+    const config = {
+        linkedin: {
+            className: 'linkedin-search-btn',
+            icon: 'https://www.linkedin.com/favicon.ico',
+            text: 'Find on LinkedIn',
+            url: `https://www.linkedin.com/search/results/companies/?keywords=${encodeURIComponent(companyName)}`
+        },
+        glassdoor: {
+            className: 'glassdoor-search-btn',
+            icon: 'https://www.glassdoor.com/favicon.ico',
+            text: 'Find on Glassdoor',
+            url: `https://www.glassdoor.com/Search/results.htm?keyword=${encodeURIComponent(companyName)}`
+        }
+    };
+
+    const platformConfig = config[platform];
+    button.className = platformConfig.className;
+    button.innerHTML = `<img src="${platformConfig.icon}" alt="${platform}" /> ${platformConfig.text}`;
 
     button.addEventListener('click', () => {
-        const searchUrl = `https://www.linkedin.com/search/results/companies/?keywords=${encodeURIComponent(companyName)}`;
-        window.open(searchUrl, '_blank');
+        window.open(platformConfig.url, '_blank');
     });
 
     return button;
@@ -93,14 +126,14 @@ function findCompanyName() {
 function initObserver() {
     const companyName = findCompanyName();
     if (companyName) {
-        addLinkedInButton(companyName);
+        addSearchButtons(companyName);
         return;
     }
 
     const observer = new MutationObserver(() => {
         const companyName = findCompanyName();
         if (companyName) {
-            addLinkedInButton(companyName);
+            addSearchButtons(companyName);
             observer.disconnect();
         }
     });

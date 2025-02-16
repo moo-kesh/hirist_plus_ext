@@ -1,32 +1,53 @@
-.linkedin-search-btn {
+.linkedin-search-btn,
+.glassdoor-search-btn {
+    padding: 8px 12px;
+    margin: 5px 0;
+    /* Changed to vertical margin only */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
     display: inline-flex;
     align-items: center;
-    margin: 10px 0;
-    padding: 8px 16px;
-    border: 1px solid #0a66c2;
-    border-radius: 4px;
-    background-color: #0a66c2;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
+    background-color: white;
     transition: background-color 0.2s;
-    font-family: inherit;
+    width: auto;
+    /* Prevent full width */
 }
 
-.linkedin-search-btn:hover {
-    background-color: #004182;
+.linkedin-search-btn:hover,
+.glassdoor-search-btn:hover {
+    background-color: #f5f5f5;
 }
 
-.linkedin-search-btn img {
+.linkedin-search-btn img,
+.glassdoor-search-btn img {
     width: 16px;
     height: 16px;
     margin-right: 8px;
 }
 
-/* Position the button after job title */
-.job-detail-title+.linkedin-search-btn {
+/* Position the buttons after job title */
+.job-detail-title+.linkedin-search-btn,
+.job-detail-title+.glassdoor-search-btn {
     display: block;
     width: fit-content;
+    margin-top: 10px;
+    /* Add some space after the title */
+    clear: both;
+    /* Ensure it appears on a new line */
+}
+
+/* Button container for proper spacing */
+.company-search-buttons {
+    display: flex;
+    flex-direction: row;
+    /* Changed to row from column */
+    gap: 8px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    /* Allow wrapping on smaller screens */
+    width: fit-content;
+    /* Container should only be as wide as its content */
 }
 
 .company-detail-wrapper {

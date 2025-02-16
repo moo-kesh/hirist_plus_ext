@@ -1,25 +1,27 @@
 # Hirist+ Company Research Tool
-
-A Chrome extension that enhances your Hirist job search experience by adding quick LinkedIn company research capabilities. When viewing job listings, the extension adds a "Find on LinkedIn" button that lets you instantly search for the company on LinkedIn.
+A browser extension that enhances Hirist job listings by adding instant LinkedIn and Glassdoor research buttons. Streamlines your job search by providing quick access to company information and reviews.
 
 ## Features
 
 - 🔍 Automatically detects company names on Hirist job listings
-- 🚀 One-click access to company LinkedIn profiles
+- 🚀 One-click access to company profiles on LinkedIn and Glassdoor
 - 💨 Fast and lightweight
 - 🔒 Minimal permissions required
 - 🎯 Clean and intuitive interface
+- 🔄 Supports both Chrome and Edge browsers
 
 ## Installation
 
-### From Chrome Web Store (Coming Soon)
-1. Visit the Chrome Web Store (link coming soon)
-2. Click "Add to Chrome"
+### From Chrome Web Store / Microsoft Edge Add-ons (Coming Soon)
+1. Visit the store page (link coming soon)
+2. Click "Add to Chrome/Edge"
 3. Click "Add Extension" when prompted
 
 ### Manual Installation
 1. Clone this repository
-2. Open Chrome and go to `chrome://extensions/`
+2. Open Chrome/Edge and go to extensions page
+   - Chrome: `chrome://extensions/`
+   - Edge: `edge://extensions/`
 3. Enable "Developer mode" in the top right
 4. Click "Load unpacked"
 5. Select the folder containing the extension files
@@ -27,8 +29,10 @@ A Chrome extension that enhances your Hirist job search experience by adding qui
 ## Usage
 
 1. Visit any job listing on [Hirist](https://www.hirist.tech/)
-2. Look for the "Find on LinkedIn" button near the company name
-3. Click the button to search for the company on LinkedIn
+2. Look for the research buttons below the job title
+3. Click either button to:
+   - Search for the company on LinkedIn
+   - Research company reviews and ratings on Glassdoor
 
 ## Development
 
@@ -37,13 +41,13 @@ A Chrome extension that enhances your Hirist job search experience by adding qui
 ├── manifest.json       # Extension configuration
 ├── content.js         # Main content script
 ├── background.js      # Background service worker
-├── styles.css        # Button and UI styles
+├── styles.css         # Button and UI styles
 └── icons/            # Extension icons
 ```
 
 ### Local Development
 1. Make your changes
-2. Go to `chrome://extensions/`
+2. Go to browser's extensions page
 3. Click the refresh icon on the extension card
 4. Test your changes on Hirist
 
@@ -61,4 +65,6 @@ This extension:
 - Only activates on Hirist job listing pages
 - Does not collect any user data
 - Does not track your browsing
-- Only requires minimal permissions to function
+- Only requires minimal permissions to function:
+  - Access to hirist.tech for functionality
+  - Access to LinkedIn/Glassdoor for search redirection

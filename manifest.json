@@ -2,14 +2,15 @@
     "manifest_version": 3,
     "name": "Hirist+ Company Research Tool",
     "version": "1.0.0",
-    "description": "Enhance your job search on Hirist by adding quick LinkedIn company research capabilities. Seamlessly search for companies while browsing jobs.",
+    "description": "Add LinkedIn and Glassdoor company research buttons to Hirist job listings for quick company information access.",
     "permissions": [
         "activeTab",
         "scripting"
     ],
     "host_permissions": [
         "https://www.hirist.tech/*",
-        "https://www.linkedin.com/*"
+        "https://www.linkedin.com/*",
+        "https://www.glassdoor.com/*"
     ],
     "action": {
         "default_icon": {
@@ -41,6 +42,6 @@
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
     },
-    "author": "Your Name",
-    "homepage_url": "https://github.com/yourusername/jobhunt-plus"
+    "author": "Mukesh Kumar",
+    "homepage_url": "https://github.com/moo-kesh/hirist_plus_ext"
 }

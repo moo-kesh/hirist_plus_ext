@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Hirist+ Company Research Tool",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Add LinkedIn and Glassdoor company research buttons to Hirist job listings for quick company information access.",
     "permissions": [
         "activeTab",

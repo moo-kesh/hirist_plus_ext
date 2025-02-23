@@ -12,9 +12,9 @@ A browser extension that enhances Hirist job listings by adding instant LinkedIn
 
 ## Installation
 
-### From Chrome Web Store / Microsoft Edge Add-ons (Coming Soon)
-1. Visit the store page (link coming soon)
-2. Click "Add to Chrome/Edge"
+### From Chrome Web Store / Microsoft Edge Add-ons
+1. Microsoft Edge Add-ons: [Install from Edge Add-ons Store](https://microsoftedge.microsoft.com/addons/detail/hirist-company-research-/ccpapgkjmmndencjgdbbooebggihmmnd)
+2. Chrome Web Store: Coming Soon
 3. Click "Add Extension" when prompted
 
 ### Manual Installation
